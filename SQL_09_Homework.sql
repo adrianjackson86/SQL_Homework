@@ -107,7 +107,7 @@ select concat(s.first_name," ",s.last_name) as Full_Name
 from staff s
 join payment p
 on s.staff_id = p.staff_id
-where month(payment_date) = 8
+where month(payment_date) = 8 and year(payment_date) = 2005
 group by concat(s.first_name," ",s.last_name);
 
 -- 6c. List each film and the number of actors who are listed for that film. Use tables film_actor and film. Use inner join.
