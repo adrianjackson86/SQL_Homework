@@ -103,10 +103,11 @@ on s.address_id = a.address_id;
 
 -- 6b. Use JOIN to display the total amount rung up by each staff member in August of 2005. Use tables staff and payment.
 select concat(s.first_name," ",s.last_name) as Full_Name
-	   ,sum(p.amount)
+	   ,sum(p.amount) as "August Revenue by Staff"
 from staff s
 join payment p
 on s.staff_id = p.staff_id
+where month(payment_date) = 8
 group by concat(s.first_name," ",s.last_name);
 
 -- 6c. List each film and the number of actors who are listed for that film. Use tables film_actor and film. Use inner join.
